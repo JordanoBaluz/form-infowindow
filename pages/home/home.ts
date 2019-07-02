@@ -9,21 +9,26 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 export class HomePage {
 
   infoInput;
+  typeOptions = [
+    '',
+    'Sistema Rodoviario',
+    'Sistema Sanitario'
+  ];
 
   constructor(public navCtrl: NavController, private formBuilder: FormBuilder) {
     this.infoInput = this.formBuilder.group({
-      typeOptions: [
-        {id: '1', viewValue: 'Sistema Rodoviario'},
-        {id: '2', viewValue: 'Sistema Sanitario'}
-      ],
-      lat: Number,
-      lng: Number,
-      description: ''
+      typeOptions2: '',
+      description: '',
+      latLng: this.formBuilder.group({
+        lat: Number,
+        lng: Number
+      })
     });
   }
 
   onSubmit(data){
     console.warn(data);
+    this.infoInput.reset();
   }
 
 }

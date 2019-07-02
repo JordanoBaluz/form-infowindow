@@ -10,20 +10,19 @@
   <form [formGroup]="infoInput" (ngSubmit)="onSubmit(infoInput.value)">
     <div>
       <label>Selecione a area</label>
-      <select ng-model="typeOptions">
-        <option *ngFor="let type of typeOptions">
-          {{ type.viewValue }}
+      <select formControlName="typeOptions2">
+        <option *ngFor="let type of typeOptions" [value]="type">
+          {{type}}
         </option>
       </select>
     </div>
-    <div>
-      <label>Latitude</label>
-      <input type="number" formControlName="lat">
+    
+    <div formGroupName="latLng">
+      <label>LatLng</label>
+      <input type="number" step="any" formControlName="lat">
+      <input type="number" step="any" formControlName="lng">
     </div>
-    <div>
-      <label>Longitude</label>
-      <input type="number" formControlName="lng">
-    </div>
+
     <div>
       <label>Descrição</label>
       <input type="text" formControlName="description">
