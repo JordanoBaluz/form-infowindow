@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Formulario InfoWindow</h2>
+  
+  <form [formGroup]="infoInput" (ngSubmit)="onSubmit(infoInput.value)">
+    <div>
+      <label>Selecione a area</label>
+      <select ng-model="typeOptions">
+        <option *ngFor="let type of typeOptions">
+          {{ type.viewValue }}
+        </option>
+      </select>
+    </div>
+    <div>
+      <label>Latitude</label>
+      <input type="number" formControlName="lat">
+    </div>
+    <div>
+      <label>Longitude</label>
+      <input type="number" formControlName="lng">
+    </div>
+    <div>
+      <label>Descrição</label>
+      <input type="text" formControlName="description">
+    </div>
+    <button class="button" type="submit">Enviar</button>
+  </form>
+
+</ion-content>
